@@ -1,4 +1,5 @@
-import React from "react";
+import Image from "next/image";
+import { site } from "./site";
 
 /**
  * SanctuarySection
@@ -13,9 +14,9 @@ export default function Sanctuary({
   eyebrow = "Architecture & Refuge",
   title = "Un pavillon de bois blond et de lin à l'abri du tumulte algérois.",
   ctaLabel = "Visiter le sanctuaire",
-  ctaHref = "#",
-  imageSrc = "/hero/hero4.png",
-  imageAlt = "Intérieur du pavillon",
+  ctaHref = site.mapsHref,
+  imageSrc = "/hero/hero4.webp",
+  imageAlt = "Salle du restaurant : lanternes, bois blond et fresque de geisha",
   infos = [
     {
       label: "Horaires d'ouverture",
@@ -34,7 +35,7 @@ export default function Sanctuary({
     },
     {
       label: "Réservation recommandée",
-      title: "+213 794 25 98 31",
+      title: site.phones[0].label,
       subtitle: "Conciergerie disponible 7j/7",
     },
   ],
@@ -55,6 +56,8 @@ export default function Sanctuary({
 
           <a
             href={ctaHref}
+            target="_blank"
+            rel="noopener noreferrer"
             className="shrink-0 text-sm text-[#C9673F] border-b border-[#C9673F]/40 pb-1 hover:border-[#C9673F] transition-colors duration-200 self-start sm:self-end whitespace-nowrap"
           >
             {ctaLabel} <span aria-hidden="true">→</span>
@@ -62,11 +65,13 @@ export default function Sanctuary({
         </div>
 
         {/* Image */}
-        <div className="w-full aspect-[16/9] overflow-hidden rounded-sm">
-          <img
+        <div className="relative w-full aspect-[16/9] overflow-hidden rounded-sm">
+          <Image
             src={imageSrc}
             alt={imageAlt}
-            className="w-full h-full object-cover"
+            fill
+            sizes="(min-width: 1280px) 1200px, 100vw"
+            className="object-cover"
           />
         </div>
 

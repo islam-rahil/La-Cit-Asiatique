@@ -1,14 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
+import { anchors } from "./site";
 
 export default function Hero() {
   return (
-    <section className="w-full max-w-[1220px] mx-auto px-0 md:px-6 my-20 md:my-26 sm:my-0">
-      
+    <section className="w-full max-w-[1220px] mx-auto px-0 md:px-6 mt-16 mb-12 md:mt-26 md:mb-20">
       {/* ================= BLOC MOBILE ================= */}
       <div className="block md:hidden relative w-full h-[85vh] mt-0 overflow-hidden shadow-xl">
         <Image
-          src="/hero/mainhero2.jpeg"
+          src="/hero/mainhero-mobile.webp"
           alt="La Cité Asiatique — restaurant asiatique à Alger, ambiance sakura"
           fill
           priority
@@ -33,13 +33,13 @@ export default function Hero() {
 
           <div className="flex flex-col w-full gap-2.5 max-w-xs">
             <Link
-              href="#reserver"
+              href={anchors.booking}
               className="w-full py-3 rounded-xl bg-rose-600 active:bg-rose-700 text-white text-xs font-semibold tracking-wide shadow-md transition"
             >
               Réserver une table
             </Link>
             <Link
-              href="#menu"
+              href={anchors.menu}
               className="w-full py-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 active:bg-white/20 text-white text-xs font-semibold tracking-wide transition"
             >
               Consulter le menu
@@ -49,19 +49,18 @@ export default function Hero() {
       </div>
 
       {/* ================= BLOC DESKTOP ================= */}
-      <div className="hidden md:block relative w-full h-[78vh]  overflow-hidden shadow-2xl">
+      <div className="hidden md:block relative w-full h-[78vh] overflow-hidden shadow-2xl">
+        {/* Le titre est dans l'image : on le garde lisible pour les moteurs et lecteurs d'écran */}
+        <h1 className="sr-only">La Cité Asiatique — restaurant asiatique à Alger</h1>
         <Image
-          src="/hero/mainhero.jpeg"
+          src="/hero/mainhero.webp"
           alt="La Cité Asiatique — restaurant asiatique à Alger, ambiance sakura"
           fill
           priority
           sizes="1220px"
           className="object-cover"
         />
-
-       
       </div>
-
     </section>
   );
 }

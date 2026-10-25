@@ -4,18 +4,17 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { anchors } from "./site";
 
 const navLinks = [
-  { label: "LA CARTE", href: "/about" },
-  { label: "RÉSERVATIONS", href: "/services" },
-  { label: "CONTACT & ACCÈS", href: "/pricing" },
+  { label: "LA CARTE", href: anchors.menu },
+  { label: "RÉSERVATIONS", href: anchors.booking },
+  { label: "CONTACT & ACCÈS", href: anchors.contact },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -73,30 +72,22 @@ export default function Navbar() {
 
         {/* Desktop nav — centrée */}
         <ul className="hidden md:flex items-center gap-1 justify-self-center">
-          {navLinks.map((link) => {
-            const active = pathname === link.href;
-            return (
-              <li key={link.label}>
-                <Link
-                  href={link.href}
-                  aria-current={active ? "page" : undefined}
-                  className={`relative inline-block px-4 py-2 rounded-lg text-sm font-medium tracking-wide transition-colors duration-200 ${
-                    active
-                      ? "text-[#AE2F35]"
-                      : "text-[#1C1C19] hover:text-[#AE2F35]"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              </li>
-            );
-          })}
+          {navLinks.map((link) => (
+            <li key={link.label}>
+              <Link
+                href={link.href}
+                className="relative inline-block px-4 py-2 rounded-lg text-sm font-medium tracking-wide text-[#1C1C19] hover:text-[#AE2F35] transition-colors duration-200"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
         </ul>
 
         {/* Droite : CTA + langue (desktop) / burger (mobile) */}
         <div className="flex items-center justify-end gap-4 justify-self-end">
           <Link
-            href="/InscrivezVous"
+            href={anchors.booking}
             className="hidden md:inline-flex text-sm font-semibold tracking-wide text-[#1C1C19] hover:text-[#AE2F35] transition-colors duration-200"
           >
             RÉSERVER
@@ -135,9 +126,7 @@ export default function Navbar() {
         }`}
       >
         <ul className="flex flex-col gap-2 px-4 py-4 border-t border-[#C4C7C7]/50">
-          {navLinks.map((link, i) => {
-            const active = pathname === link.href;
-            return (
+          {navLinks.map((link, i) => (
               <li
                 key={link.label}
                 style={{ transitionDelay: isOpen ? `${i * 60}ms` : "0ms" }}
@@ -148,21 +137,15 @@ export default function Navbar() {
                 <Link
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  aria-current={active ? "page" : undefined}
-                  className={`block px-4 py-3 rounded-xl text-lg font-semibold transition-colors duration-200 ${
-                    active
-                      ? "text-[#AE2F35] bg-[#AE2F35]/10"
-                      : "text-[#1C1C19] hover:text-[#AE2F35] hover:bg-[#AE2F35]/10"
-                  }`}
+                  className="block px-4 py-3 rounded-xl text-lg font-semibold text-[#1C1C19] hover:text-[#AE2F35] hover:bg-[#AE2F35]/10 transition-colors duration-200"
                 >
                   {link.label}
                 </Link>
               </li>
-            );
-          })}
+          ))}
           <li>
             <Link
-              href="/InscrivezVous"
+              href={anchors.booking}
               onClick={() => setIsOpen(false)}
               className="block text-center text-[#AE2F35] hover:text-[#C40723] hover:bg-[#AE2F35]/10 px-4 py-3 rounded-xl font-semibold mt-2 transition-colors duration-200"
             >

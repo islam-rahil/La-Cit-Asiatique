@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import { anchors } from "./site";
 
 export default function Essence() {
   return (
-    <section className="max-w-8xl mx-auto px-10 pb-10 sm:px-0 ">
-      <div className="grid md:grid-cols-2 gap-10 md:gap-46 items-center">
+    <section className="w-full max-w-[1220px] mx-auto px-6 pb-20">
+      <div className="grid md:grid-cols-2 gap-10 md:gap-16 lg:gap-24 items-center">
         {/* Colonne texte */}
         <div className="flex gap-4 md:gap-6">
           {/* Kanji vertical */}
@@ -39,15 +40,15 @@ export default function Essence() {
             </p>
 
             {/* CTA */}
-            <div className="flex items-center gap-6 mb-10">
+            <div className="flex flex-wrap items-center gap-6 mb-10">
               <Link
-                href="/about"
+                href={anchors.menu}
                 className="text-sm font-semibold tracking-wide text-[#1C1C19] border-b border-[#1C1C19] pb-1 hover:text-[#AE2F35] hover:border-[#AE2F35] transition-colors duration-200"
               >
                 DÉCOUVRIR LA CARTE
               </Link>
               <Link
-                href="/InscrivezVous"
+                href={anchors.booking}
                 className="text-sm font-semibold tracking-wide text-[#AE2F35] hover:text-[#C40723] transition-colors duration-200"
               >
                 RÉSERVER UNE TABLE
@@ -80,9 +81,9 @@ export default function Essence() {
         </div>
 
         {/* Colonne image */}
-        <div className="relative w-full aspect-[5/5] md:aspect-[3/4]  overflow-hidden">
+        <div className="relative w-full aspect-square md:aspect-[3/4] overflow-hidden">
           <Image
-            src="/hero/hero2.png"
+            src="/hero/hero2.webp"
             alt="Sushi préparé avec soin, esthétique de la cuisine japonaise"
             fill
             sizes="(min-width: 768px) 50vw, 100vw"

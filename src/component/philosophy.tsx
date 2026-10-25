@@ -26,7 +26,7 @@ export default function Philosophy() {
           <p className="text-sm tracking-[0.15em] font-semibold text-white mb-1">
             CHEF EXÉCUTIF
           </p>
-          <p className="text-sm text-white/70">
+          <p className="text-sm text-white/85">
             Héritage Kyotite &amp; Produits de Méditerranée
           </p>
         </div>
