@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Navbar from "../component/nav";
+import Footer from "../component/footer";
 
 // Polices variables : un seul fichier par style couvre toutes les graisses.
 const playfairDisplay = localFont({
@@ -51,7 +53,12 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="fr"
       className={`${playfairDisplay.variable} ${plusJakartaSans.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col bg-[#FDF9F4] text-[#1C1C19] selection:bg-rose-500 selection:text-white">
+        {/* Barre de navigation pleine largeur */}
+        <Navbar />
+        <main className="flex-1 w-full flex flex-col">{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

@@ -2,9 +2,9 @@
 export const site = {
   name: "La Cité Asiatique",
   phones: [
-    { label: "0794 25 98 31", href: "tel:+213794259831" },
-    { label: "0698 89 39 97", href: "tel:+213698893997" },
-    { label: "0555 78 77 57", href: "tel:+213555787757" },
+    { label: "0794 25 98 31", href: "tel:+213794259831", whatsapp: "https://wa.me/213794259831" },
+    { label: "0698 89 39 97", href: "tel:+213698893997", whatsapp: "https://wa.me/213698893997" },
+    { label: "0555 78 77 57", href: "tel:+213555787757", whatsapp: "https://wa.me/213555787757" },
   ],
   street: "04 Bd du 11 Décembre",
   area: "Val d'Hydra",
@@ -16,9 +16,10 @@ export const site = {
   instagram: { handle: "@laciteasiatique", href: "https://www.instagram.com/laciteasiatique/" },
 };
 
-// Ancres des sections de la page d'accueil.
-export const anchors = {
-  menu: "#carte",
-  booking: "#reserver",
-  contact: "#contact",
+// Pages du site.
+export const routes = {
+  home: "/",
+  menu: "/carte",
+  booking: "/reservation",
+  contact: "/contact",
 };

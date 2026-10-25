@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { anchors } from "./site";
+import { routes } from "./site";
 
 export default function Hero() {
   return (
@@ -33,13 +33,13 @@ export default function Hero() {
 
           <div className="flex flex-col w-full gap-2.5 max-w-xs">
             <Link
-              href={anchors.booking}
+              href={routes.booking}
               className="w-full py-3 rounded-xl bg-rose-600 active:bg-rose-700 text-white text-xs font-semibold tracking-wide shadow-md transition"
             >
               Réserver une table
             </Link>
             <Link
-              href={anchors.menu}
+              href={routes.menu}
               className="w-full py-3 rounded-xl bg-white/10 backdrop-blur-sm border border-white/20 active:bg-white/20 text-white text-xs font-semibold tracking-wide transition"
             >
               Consulter le menu

@@ -1,4 +1,5 @@
-import { anchors, site } from "./site";
+import Link from "next/link";
+import { routes } from "./site";
 
 /**
  * ReservationCTASection
@@ -9,13 +10,13 @@ export default function ReservationCTA({
   eyebrow = "Réservation anticipée",
   title = "Prenez place dans la quiétude.",
   subtitle = "Pour préserver la pureté du service et la sérénité du lieu, le nombre de couverts par heure demeure strictement mesuré.",
-  primaryLabel = "Appeler pour réserver",
-  primaryHref = site.phones[0].href,
-  secondaryLabel = "Consulter le menu complet",
-  secondaryHref = anchors.menu,
+  primaryLabel = "Réserver une table",
+  primaryHref = routes.booking,
+  secondaryLabel = "Consulter la carte complète",
+  secondaryHref = routes.menu,
 }) {
   return (
-    <section id="reserver" className="scroll-mt-20 bg-[#FDF9F4] text-[#1A1A1A] px-6 sm:px-10 lg:px-16 py-20">
+    <section className="bg-[#FDF9F4] text-[#1A1A1A] px-6 sm:px-10 lg:px-16 py-20">
       <div className="mx-auto max-w-2xl text-center">
         <p className="text-[#A3502C] text-xs tracking-wide mb-4">
           {eyebrow}
@@ -30,32 +31,20 @@ export default function ReservationCTA({
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-          <a
+          <Link
             href={primaryHref}
             className="bg-[#1A1A1A] text-[#F5F2EC] text-sm px-8 py-4 hover:bg-[#2A2A2A] transition-colors duration-200"
           >
             {primaryLabel}
-          </a>
+          </Link>
 
-          <a
+          <Link
             href={secondaryHref}
             className="text-sm text-[#1A1A1A] border-b border-[#1A1A1A] pb-1 hover:opacity-70 transition-opacity duration-200"
           >
             {secondaryLabel}
-          </a>
+          </Link>
         </div>
-
-        <p className="mt-10 text-sm text-[#5C5750]">
-          Par téléphone, 7j/7 :{" "}
-          {site.phones.map((phone, i) => (
-            <span key={phone.href}>
-              {i > 0 && " · "}
-              <a href={phone.href} className="text-[#1A1A1A] hover:text-[#AE2F35] transition-colors duration-200 whitespace-nowrap">
-                {phone.label}
-              </a>
-            </span>
-          ))}
-        </p>
       </div>
     </section>
   );

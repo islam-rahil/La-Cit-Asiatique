@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* Analyse explicite de src/ : la détection automatique peut manquer des fichiers. */
+@source "../";
 
 :root {
   --background: #fdf9f4;

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { anchors } from "./site";
+import { routes } from "./site";
 
 export default function Essence() {
   return (
@@ -42,13 +42,13 @@ export default function Essence() {
             {/* CTA */}
             <div className="flex flex-wrap items-center gap-6 mb-10">
               <Link
-                href={anchors.menu}
+                href={routes.menu}
                 className="text-sm font-semibold tracking-wide text-[#1C1C19] border-b border-[#1C1C19] pb-1 hover:text-[#AE2F35] hover:border-[#AE2F35] transition-colors duration-200"
               >
                 DÉCOUVRIR LA CARTE
               </Link>
               <Link
-                href={anchors.booking}
+                href={routes.booking}
                 className="text-sm font-semibold tracking-wide text-[#AE2F35] hover:text-[#C40723] transition-colors duration-200"
               >
                 RÉSERVER UNE TABLE

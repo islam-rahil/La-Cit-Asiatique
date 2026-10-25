@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { routes } from "./site";
 
 /**
  * EditorialMenuSection
@@ -38,7 +40,7 @@ export default function EditorialMenu({
   imageCaptionText = "Artisanat vivant",
 }) {
   return (
-    <section id="carte" className="scroll-mt-20 bg-[#FDF9F4] text-[#1C1C19] px-6 sm:px-10 lg:px-16 py-14">
+    <section className="bg-[#FDF9F4] text-[#1C1C19] px-6 sm:px-10 lg:px-16 py-14">
       <div className="mx-auto max-w-[1200px]">
         {/* En-tête */}
         <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-10">
@@ -51,9 +53,17 @@ export default function EditorialMenu({
             </h2>
           </div>
 
-          <p className="text-[#5C5750] text-sm leading-relaxed max-w-xs">
-            {intro}
-          </p>
+          <div className="max-w-xs">
+            <p className="text-[#5C5750] text-sm leading-relaxed mb-4">
+              {intro}
+            </p>
+            <Link
+              href={routes.menu}
+              className="text-sm font-semibold tracking-wide text-[#1C1C19] border-b border-[#1C1C19] pb-1 hover:text-[#AE2F35] hover:border-[#AE2F35] transition-colors duration-200"
+            >
+              Voir toute la carte <span aria-hidden="true">→</span>
+            </Link>
+          </div>
         </div>
 
         <hr className="border-t border-[#1C1C19]/20 mb-2" />

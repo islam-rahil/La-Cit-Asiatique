@@ -1,5 +1,6 @@
 import Image from "next/image";
-import { anchors, site } from "./site";
+import Link from "next/link";
+import { routes, site } from "./site";
 
 /**
  * Footer
@@ -10,8 +11,7 @@ export default function Footer() {
 
   return (
     <footer
-      id="contact"
-      className="scroll-mt-20 bg-[#141414] text-[#EDEAE3] px-6 sm:px-10 lg:px-16 pt-16 pb-8"
+      className="bg-[#141414] text-[#EDEAE3] px-6 sm:px-10 lg:px-16 pt-16 pb-8"
     >
       <div className="mx-auto max-w-[1200px]">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr] gap-10">
@@ -96,15 +96,15 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-[#EDEAE3]/50">
           <p>© {year} {site.name}. Tous droits réservés.</p>
           <nav aria-label="Liens du pied de page" className="flex gap-6">
-            <a href={anchors.menu} className="hover:text-[#EDEAE3] transition-colors duration-200">
+            <Link href={routes.menu} className="hover:text-[#EDEAE3] transition-colors duration-200">
               La carte
-            </a>
-            <a href={anchors.booking} className="hover:text-[#EDEAE3] transition-colors duration-200">
+            </Link>
+            <Link href={routes.booking} className="hover:text-[#EDEAE3] transition-colors duration-200">
               Réserver
-            </a>
-            <a href="#top" className="hover:text-[#EDEAE3] transition-colors duration-200">
-              Haut de page ↑
-            </a>
+            </Link>
+            <Link href={routes.contact} className="hover:text-[#EDEAE3] transition-colors duration-200">
+              Contact
+            </Link>
           </nav>
         </div>
       </div>
